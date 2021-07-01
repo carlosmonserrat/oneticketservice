@@ -1,6 +1,11 @@
 const express = require('express')
 const app = express()
 const port = 9000
+const cors = require('cors');
+
+app.use(cors({
+    origin:"*"
+}))
 
 app.get('/ping', (req, res) => {
     res.send('pong')
@@ -22,13 +27,6 @@ app.get('/passes', (req, res) => {
     }
 
 })
-
-
-
-app.post('/', function (req, res) {
-    console.log(req.body);
-    res.send(req.body);
-});
 
 
 app.listen(port, () => {
